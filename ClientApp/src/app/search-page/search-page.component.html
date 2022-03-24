@@ -1,0 +1,10 @@
+<app-header-component></app-header-component>
+<app-form-component (newSearchResultAvailableEvent)="onReceivedSearchResult($event)"></app-form-component>
+<app-result [style.display]="(receivedSearchResult==null)?'none':'block'"
+            [succeeded]=receivedSearchResult?.succeeded??false
+            apiErrorMessage={{receivedSearchResult?.errorMessage}}
+            cityName={{receivedSearchResult?.data?.cityName}}
+            conditionsDescription={{receivedSearchResult?.data?.conditionsDescription}}
+            [currentTemperatureFarenheit]=receivedSearchResult?.data?.temperatureActualFarenheit??0
+            [currentTemperatureFeelsLikeFarenheit]=receivedSearchResult?.data?.temperatureFeelsLikeFarenheit??0
+            [windSpeedMph]=receivedSearchResult?.data?.currentWindSpeedMph??0></app-result>

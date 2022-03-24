@@ -1,0 +1,11 @@
+<div style="margin: auto; text-align: left; width: 25%; padding-top: 20px" [style.display]="succeeded?'block':'none'">
+  <p style="width: 100%; display: inline; font-size: larger; font-weight: bold">{{cityName}}</p><div style="border-radius: 50%; display: inline-block; background-color: orange; padding: 12px; margin-left: 10px; vertical-align:bottom"></div><p></p>
+  <p style="width: 100%; margin-bottom: 0">Description: {{conditionsDescription}}</p>
+  <p style="width: 100%; margin-bottom: 0">Current temp: {{currentTemperatureFarenheit}}F</p>
+  <p style="width: 100%; margin-bottom: 0">Feels like: {{currentTemperatureFeelsLikeFarenheit}}F</p>
+  <p style="width: 100%; margin-bottom: 0">Wind speed: {{windSpeedMph}} mph</p>
+</div>
+
+<div style="margin: auto; text-align: left; width: 25%; padding-top: 20px" [style.display]="succeeded?'none':'block'">
+  <p style="width: 100%; margin-bottom: 0; color: red">{{apiErrorMessage}}</p>
+</div>

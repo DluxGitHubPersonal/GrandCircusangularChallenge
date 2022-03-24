@@ -1,0 +1,20 @@
+<div style="margin: auto; text-align: left; width: 25%; padding: 20px; box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24)">
+  <p style="font-size:larger; margin-bottom: 0px">City</p>
+  <input type="text" style="width: 100%" placeholder="Enter your city" [(ngModel)]="cityName" />
+  <button style="display: block; width: 100%" (click)="onSearchButtonClick()">Search</button>
+</div>
+
+<div style="text-align: left; width: 75%; border:1px solid black; margin-top: 10px; margin-bottom: 10px">
+  <label for="ResultMode" style="display: inline-block; width: 20%">Use test data</label>
+  <input id="ResultMode" type="checkbox" style="display: inline-block; width: 5%" [(ngModel)]="useForcedResults" />
+  <p [style.display]="useForcedResults?'inline-block':'none'" style="margin-left: 20px">Current result type:  {{forcedResultTypeName}}</p>
+  <p [style.display]="useForcedResults?'inline-block':'none'">Enabling Use test data injects one of four different types of test data, permitting all possible GUI states to be visualized, instead of calling the weather service.  The test result types are listed below.  Each time search is clicked, the next result type is used.  The first state shown is NoResult.</p>
+  <ul [style.display]="useForcedResults?'inline-block':'none'">
+    <li>No Result - default state, or if user clicks Search with no city name.  In this state, the result component is invisible.</li>
+    <li>ApiSuccessNoData - Search API succeeds, but no city matching the specified name is found</li>
+    <li>ApiFailed - the Search API returns an error</li>
+    <li>ApiSuccessWithData - the search API succeeded and returned a result</li>
+  </ul>
+
+  <p [style.display]="useForcedResults?'none':'inline-block'">When <span style="font-weight: bold">Use test data</span> is check, simulated test data is displayed.  Uncheck this box to call the weather service..</p>
+</div>
